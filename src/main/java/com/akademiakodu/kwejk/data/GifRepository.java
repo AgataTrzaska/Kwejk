@@ -3,6 +3,7 @@ package com.akademiakodu.kwejk.data;
 import com.akademiakodu.kwejk.model.Gif;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,5 +21,15 @@ public final static List<Gif> ALL_GIFS= Arrays.asList(
 
   public static List<Gif> getAllGifs(){
       return ALL_GIFS;
-        }}
+        }
 
+        public static List<Gif> getFavoriteGifs(){
+List<Gif> favoritesGifs = new ArrayList<>();
+for (Gif value : ALL_GIFS){
+    if(value.getFavorite() == true){
+        favoritesGifs.add(value);
+    }
+}
+return favoritesGifs;
+        }
+}
